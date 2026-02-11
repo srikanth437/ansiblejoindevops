@@ -5,7 +5,7 @@ become: yes
 var:
 sg_id: sg-0fc9e275bc133b8db
 image_id: ami-0220d79f3f480ecf5
-environment: dev
+env: dev
 instance:
 - mangodb
 - catalouge
@@ -15,11 +15,11 @@ instance:
    instance_type: "t3.micro"
    security_group: "{{ sg_id }}"
    image_id: "{{ image_id }}"
-   name: "{{ item }}-{{ environment }}"
+   name: "{{ item }}-{{ env }}"
    tags:
     - Project: roboshop
     - Component: "{{ item }}" 
-    - Environment: "{{ environment}}"
-    - name: "{{ item }}-{{ environment }}"
+    - Environment: "{{ env }}"
+    - name: "{{ item }}-{{ env }}"
    loop: "{{ instance }}"
    
