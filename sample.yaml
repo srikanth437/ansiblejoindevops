@@ -1,0 +1,9 @@
+---
+-host: local 
+become: yes 
+connection: yes
+#gathering facts: false
+-tasks:
+  -name: printing message
+  ansible.builtin.debug:
+    msg: "{{ i am srikanth }}"
