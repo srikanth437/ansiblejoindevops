@@ -41,4 +41,5 @@
         ttl: 1
         value: "{{ item.instance[0]}.prviate_ip_address }"
         wait: true
+        loop: "{{ ec2-ouput.results }}"
     
