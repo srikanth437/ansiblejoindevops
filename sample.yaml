@@ -1,9 +1,11 @@
 ---
-- name: Sample playbook
+- name: Local test playbook
   hosts: localhost
   connection: local
   gather_facts: false
 
   tasks:
-    - name: Test ping
-      ansible.builtin.ping:
+    - name: Print message
+      ansible.builtin.debug:
+        msg: "Ansible is working"
+
