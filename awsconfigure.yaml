@@ -8,6 +8,7 @@
     sg_id: sg-0fc9e275bc133b8db
     image_id: ami-0220d79f3f480ecf5
     env: dev
+
     instances:
       - mongodb
       - catalogue
@@ -25,8 +26,8 @@
           Environment: "{{ env }}"
           Name: "{{ item }}-{{ env }}"
       loop: "{{ instances }}"
-      register: "ec2_instance"
+      register: ec2_output
 
-    - name: print the ec2-instance
+    - name: print the ec2_output
       ansible.builtin.debug:
-        msg: "{{ ec2-instance }}"   
+        msg: "{{ ec2_output }}"   
