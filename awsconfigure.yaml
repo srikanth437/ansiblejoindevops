@@ -1,7 +1,8 @@
+---
 -name: EC2 creation
-host: all
-connection: local
-become: yes
+ host: all
+ connection: local
+ become: yes
 var:
 sg_id: sg-0fc9e275bc133b8db  # sg-0fc9e275bc133b8db
 image_id: ami-0220d79f3f480ecf5
