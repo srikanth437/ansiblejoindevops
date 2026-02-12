@@ -8,7 +8,7 @@
     sg_id: sg-0fc9e275bc133b8db
     image_id: ami-0220d79f3f480ecf5
     env: dev
-
+    domain_name: srikanth.digital
     instances:
       - mongodb
       - catalogue
@@ -31,3 +31,14 @@
     - name: print the ec2_output
       ansible.builtin.debug:
         msg: "{{ ec2_output }}"   
+
+    - name: creating the route53 record 
+      amazon.aws.route53:
+        state: present
+        zone: "{{ domain_name }}"
+        record: "{{ item.item }-{ env }.{ domain_name }}" # mangodb-dev.srikath.digital 
+        type: A
+        ttl: 1
+        value: "{{ item.instance[0]}.prviate_ip_address }"
+        wait: true
+    
