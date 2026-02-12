@@ -9,6 +9,6 @@ vars:
 
   -name: user creation
   ansible.builtin.user: 
-    name: ansible
+    name: srikanth
     # state: started 
     create_home: yes
