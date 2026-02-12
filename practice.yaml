@@ -1,14 +1,12 @@
--name: creating aws user 
- host: all
- local: 
- become: yes 
+---
+- name: Creating AWS user
+  hosts: all
+  become: yes
 
-vars:
- 
--tasks:
+  tasks:
+    - name: Create user srikanth
+      ansible.builtin.user:
+        name: srikanth
+        state: present
+        create_home: yes
 
-  -name: user creation
-  ansible.builtin.user: 
-    name: srikanth
-    # state: started 
-    create_home: yes
