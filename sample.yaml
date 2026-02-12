@@ -1,9 +1,9 @@
 ---
--host: local 
-become: yes 
-connection: yes
-#gathering facts: false
--tasks:
-  -name: printing message
-  ansible.builtin.debug:
-    msg: "{{ i am srikanth }}"
+- name: Sample playbook
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Test ping
+      ansible.builtin.ping:
